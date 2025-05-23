@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ubicación en el mapa</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 400px; width: 100%; margin-top: 20px; }
+        body { font-family: Arial; max-width: 600px; margin: auto; padding: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Mostrar ubicación en un mapa</h2>
+    <label for="lat">Latitud:</label>
+    <input type="text" id="lat" placeholder="Ej: -34.6037"><br><br>
+    <label for="lon">Longitud:</label>
+    <input type="text" id="lon" placeholder="Ej: -58.3816"><br><br>
+    <button onclick="mostrarMapa()">Mostrar en el mapa</button>
+
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        let mapa;
+
+        function mostrarMapa() {
+            const lat = parseFloat(document.getElementById('lat').value);
+            const lon = parseFloat(document.getElementById('lon').value);
+
+            if (isNaN(lat) || isNaN(lon)) {
+                alert("Por favor, ingresa coordenadas válidas.");
+                return;
+            }
+
+            if (mapa) {
+                mapa.remove(); // borra el mapa anterior si existe
+            }
+
+            mapa = L.map('map').setView([lat, lon], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(mapa);
+
+            L.marker([lat, lon]).addTo(mapa)
+                .bindPopup(`Ubicación: ${lat}, ${lon}`)
+                .openPopup();
+        }
+    </script>
+</body>
+</html>
