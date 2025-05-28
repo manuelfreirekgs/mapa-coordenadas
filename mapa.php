@@ -20,7 +20,7 @@
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    fetch('datos.php')
+    fetch('datos001.php')
         .then(response => response.json())
         .then(data => {
             data.forEach(punto => {
