@@ -5,6 +5,8 @@ $user = 'user';
 $pass = 'YuVYGYvGTu8oTJvLP6owctiFmq6pGZnx';
 $port = '5432';
 
+<script> console.log("manuel base 0"); </script>
+
 $conn = pg_connect("host=$host dbname=$db user=$user password=$pass port=$port");
 
 if (!$conn) {
