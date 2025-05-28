@@ -9,20 +9,21 @@
     </style>
 </head>
 <body>
-    <h2>Ubicaciones en el mapa4</h2>
+    <h2>Ubicaciones en el mapa5</h2>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
+
+    console.log("hola1");
+        
     const map = L.map('map').setView([0.073080, -76.932743], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-<script>
-  console.log("hola");
-</script>
+  console.log("hola2");
         
    fetch('datos001.php')
         .then(response => response.json())
