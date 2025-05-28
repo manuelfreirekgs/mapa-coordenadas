@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mapa desde BD</title>
+    <title>GUIVELLY SPEED</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
