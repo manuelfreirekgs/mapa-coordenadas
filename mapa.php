@@ -26,7 +26,7 @@
             data.forEach(punto => {
                 L.marker([punto.latitud, punto.longitud])
                     .addTo(map)
-                    .bindPopup(punto.nombre);
+                    .bindPopup(punto.equipo);
             });
         });
     </script>
