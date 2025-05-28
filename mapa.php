@@ -20,6 +20,8 @@
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
+console.log("hola");
+        
    fetch('datos001.php')
         .then(response => response.json())
         .then(data => {
