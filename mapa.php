@@ -9,12 +9,12 @@
     </style>
 </head>
 <body>
-    <h2>Ubicaciones en el mapa1</h2>
+    <h2>Ubicaciones en el mapa2</h2>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-    const map = L.map('map').setView([-34.6037, -58.3816], 13);
+    const map = L.map('map').setView([0.073080, -76.932743], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
