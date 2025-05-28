@@ -9,7 +9,7 @@
     </style>
 </head>
 <body>
-    <h2>Ubicaciones en el mapa5</h2>
+    <h2>Ubicaciones en el mapa6</h2>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -26,6 +26,9 @@
   console.log("hola2");
         
    fetch('datos001.php')
+
+         console.log("hola3");
+       
         .then(response => response.json())
         .then(data => {
             data.forEach(punto => {
