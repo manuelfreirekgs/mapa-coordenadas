@@ -9,8 +9,12 @@ $conn = pg_connect("host=$host dbname=$db user=$user password=$pass port=$port")
 
 if (!$conn) {
   echo json_encode(['error' => 'No se pudo conectar a la base de datos']);
+
+  <script> console.log("manuel base 1"); </script>
   exit;
 }
+
+<script> console.log("manuel base 2"); </script>
 
 $query = "SELECT id, equipo, latitud, longitud, velocidad, fecha, hora FROM ubicaciones ORDER BY id DESC LIMIT 1";
 $result = pg_query($conn, $query);
