@@ -27,7 +27,7 @@
         
    fetch('datos001.php')
 
-         console.log("hola3");
+//         console.log("hola3");
        
         .then(response => response.json())
         .then(data => {
