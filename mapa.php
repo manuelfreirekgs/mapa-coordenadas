@@ -20,15 +20,16 @@
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-//   fetch('datos001.php')
-//        .then(response => response.json())
-//        .then(data => {
-//            data.forEach(punto => {
-//                L.marker([punto.latitud, punto.longitud])
-//                    .addTo(map)
-//                    .bindPopup(punto.equipo);
-//            });
-//        });
+   fetch('datos001.php')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(punto => {
+        console.log("Latitud:", punto.latitud, "Longitud:", punto.longitud);
+                L.marker([punto.latitud, punto.longitud])
+                    .addTo(map)
+                    .bindPopup(punto.equipo);
+            });
+        });
     </script>
 </body>
 </html>
