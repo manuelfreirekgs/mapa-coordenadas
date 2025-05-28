@@ -1,7 +1,7 @@
 <?php
 //$host = 'dpg-d0r7293uibrs73cvc6kg-a.frankfurt-postgres.render.com';
 $host = 'dpg-d0r7293uibrs73cvc6kg-a';
-
+$db = 'guivelly'
 $user = 'user';
 $pass = 'YuVYGYvGTu8oTJvLP6owctiFmq6pGZnx';
 $port = '5432';
