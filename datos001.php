@@ -1,28 +1,29 @@
 <?php
-//$host = 'dpg-d0r7293uibrs73cvc6kg-a.frankfurt-postgres.render.com';
+// Configuración de la base de datos
 $host = 'dpg-d0r7293uibrs73cvc6kg-a';
-$db = 'guivelly';
+$db   = 'guivelly';
 $user = 'user';
 $pass = 'YuVYGYvGTu8oTJvLP6owctiFmq6pGZnx';
 $port = '5432';
 
+try {
+    // Crear conexión PDO
+    $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$conn = pg_connect("host=$host dbname=$db user=$user password=$pass port=$port");
+    // Consulta: obtener el último registro
+    $sql = "SELECT * FROM ubicaciones ORDER BY id DESC LIMIT 1";
+    $stmt = $conn->query($sql);
 
-if (!$conn) {
-  echo json_encode(['error' => 'No se pudo conectar a la base de datos']);
+    // Obtener el resultado como arreglo asociativo
+    $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  exit;
+    // Devolver como JSON
+    header('Content-Type: application/json');
+    echo json_encode($fila);
+} catch (PDOException $e) {
+    // En caso de error, devolver mensaje
+    http_response_code(500);
+    echo json_encode(["error" => "Error de conexión: " . $e->getMessage()]);
 }
-
-$query = "SELECT id, equipo, latitud, longitud, velocidad, fecha, hora FROM ubicaciones ORDER BY id DESC LIMIT 1";
-$result = pg_query($conn, $query);
-
-if (!$result) {
-  echo json_encode(['error' => 'Consulta fallida']);
-  exit;
-}
-
-$data = pg_fetch_assoc($result);
-echo json_encode($data);
 ?>
