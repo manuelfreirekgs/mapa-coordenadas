@@ -11,16 +11,14 @@ try {
     $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Consulta: obtener el último registro
-    $sql = "SELECT * FROM ubicaciones ORDER BY id DESC LIMIT 1";
-    $stmt = $conn->query($sql);
 
-    // Obtener el resultado como arreglo asociativo
-    $fila = $stmt->fetch(PDO::FETCH_ASSOC);
+ ///////////////////////////
+$sql = "SELECT * FROM ubicaciones ORDER BY id DESC LIMIT 10";
+$datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+echo json_encode($datos); // ← esto devuelve un arreglo
+//////////////////////////////////////
 
-    // Devolver como JSON
-    header('Content-Type: application/json');
-    echo json_encode($fila);
+
 } catch (PDOException $e) {
     // En caso de error, devolver mensaje
     http_response_code(500);
