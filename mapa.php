@@ -9,7 +9,7 @@
     </style>
 </head>
 <body>
-    <h2>Ubicaciones en el mapa0</h2>
+    <h2>Ubicaciones en el mapa1</h2>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
