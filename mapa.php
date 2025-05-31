@@ -17,7 +17,7 @@
 
     console.log("hola1");
         
-    const map = L.map('map').setView([0.073080, -76.932743], 13);
+    const map = L.map('map').setView([0.073080, -76.932743], 16);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
