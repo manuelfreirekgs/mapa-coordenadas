@@ -14,7 +14,7 @@ try {
 
  ///////////////////////////
 $sql = "SELECT * FROM ubicaciones ORDER BY id DESC LIMIT 10";
-$datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$datos->fetchAll(PDO::FETCH_ASSOC);
 echo json_encode($datos); // ← esto devuelve un arreglo
 //////////////////////////////////////
 
