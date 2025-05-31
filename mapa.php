@@ -23,19 +23,19 @@
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-  console.log("hola2");
-        
+
+
+          
    fetch('datos001.php')
 
-//         console.log("hola3");
        
         .then(response => response.json())
         .then(data => {
             data.forEach(punto => {
-        console.log("Latitud:", punto.latitud, "Longitud:", punto.longitud);
-                L.marker([punto.latitud, punto.longitud])
-                    .addTo(map)
-                    .bindPopup(punto.equipo);
+  L.marker([punto.latitud, punto.longitud]).addTo(mapa)
+    .bindPopup(punto.equipo);
+});
+      
             });
         });
     </script>
