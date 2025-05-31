@@ -1,6 +1,11 @@
-FROM php:8.2-cli
+FROM php:8.2-apache
 
-WORKDIR /app
-COPY . /app
+# Instala extensiones necesarias para PostgreSQL
+RUN apt-get update && apt-get install -y libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql
 
-CMD ["php", "-S", "0.0.0.0:10000"]
+# Copia tu app al directorio web de Apache
+COPY . /var/www/html/
+
+# (Opcional) habilita mod_rewrite si usarás URLs limpias
+RUN a2enmod rewrite
