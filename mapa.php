@@ -27,7 +27,8 @@
 fetch('datos001.php')
   .then(response => response.json())
   .then(data => {
-    // Solo un objeto, no un array → accedemos directo
+    console.log("Datos recibidos:", data);
+      
     L.marker([data.latitud, data.longitud]).addTo(map)
       .bindPopup(data.equipo)
       .openPopup();
