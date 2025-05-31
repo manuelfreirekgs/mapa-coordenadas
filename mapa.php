@@ -30,14 +30,12 @@
 
        
         .then(response => response.json())
-        .then(data => {
-            data.forEach(punto => {
+        .then(data => {  data.forEach(punto => {
   L.marker([punto.latitud, punto.longitud]).addTo(mapa)
     .bindPopup(punto.equipo);
 });
       
             });
-        });
     </script>
 </body>
 </html>
