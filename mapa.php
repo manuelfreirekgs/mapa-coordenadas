@@ -24,18 +24,17 @@
     }).addTo(map);
 
 
-
+fetch('datos001.php')
+  .then(response => response.json())
+  .then(data => {
+    // Solo un objeto, no un array → accedemos directo
+    L.marker([data.latitud, data.longitud]).addTo(map)
+      .bindPopup(data.equipo)
+      .openPopup();
+  })
+  .catch(error => console.error("Error al obtener datos:", error));
+        
           
-   fetch('datos001.php')
-
-       
-        .then(response => response.json())
-        .then(data => {  data.forEach(punto => {
-  L.marker([punto.latitud, punto.longitud]).addTo(mapa)
-    .bindPopup(punto.equipo);
-});
-      
-            });
     </script>
 </body>
 </html>
