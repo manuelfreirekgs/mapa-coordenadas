@@ -9,7 +9,7 @@
   </style>
 </head>
 <body>
-  <h2>Ruta del equipo</h2>
+  <h2>Ruta del equipo MOVIL 4 (GUIVELLY SPEED)</h2>
   <div id="map"></div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
