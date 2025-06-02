@@ -6,20 +6,22 @@ $user = 'user';
 $pass = 'YuVYGYvGTu8oTJvLP6owctiFmq6pGZnx';
 $port = '5432';
 
+header('Content-Type: application/json');
+
 try {
-    // Crear conexión PDO
+    // Conexión con PDO
     $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Consulta para obtener el último registro
-    $sql = "SELECT * FROM ubicaciones ORDER BY id DESC LIMIT 1";
+    // Consulta: los últimos 100 puntos ordenados por ID (o por fecha+hora)
+    $sql = "SELECT latitud, longitud, equipo FROM ubicaciones ORDER BY id ASC LIMIT 100";
     $stmt = $conn->query($sql);
-    $dato = $stmt->fetch(PDO::FETCH_ASSOC); // ← solo una fila
+    $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Devolver como JSON
-    echo json_encode($dato);
+    echo json_encode($datos);
 
 } catch (PDOException $e) {
+    // Si hay error, se informa
     http_response_code(500);
     echo json_encode(["error" => "Error de conexión: " . $e->getMessage()]);
 }
